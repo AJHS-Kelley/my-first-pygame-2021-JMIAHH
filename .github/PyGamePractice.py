@@ -1,4 +1,4 @@
-#PyGame Practice, Jeremiah Harrell, 11/29/2021, 9:17am, v0.5
+#PyGame Practice, Jeremiah Harrell, 11/29/2021, 9:20am, v0.6
 
 import pygame, sys
 from pygame.locals import *
@@ -28,3 +28,6 @@ textRect.centery = windowSurface.get_rect().centery
 
 #Draw background onto window surface.
 windowSurface.fill(WHITE)
+
+#Draw a green polygon onto the surface 
+pygame.draw.polygon(windowSurface, GREEN, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
