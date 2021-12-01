@@ -1,4 +1,4 @@
-#PyGame Practice, Jeremiah Harrell, 11/29/2021, 9:40am, v0.9
+#PyGame Practice, Jeremiah Harrell, 12/01/2021, 8:41am, v0.10
 
 import pygame, sys
 from pygame.locals import *
@@ -12,22 +12,23 @@ pygame.display.set_capiton("Hello, world!")
 
 #Set Color Values
 BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
+LOUISVUITTONLAVENDER = (161, 133, 255)
 RED = (255, 0 , 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+
 
 #Setup Fonts
 basicFont = pygame.font.SysFont(None, 48)
 
 #Setup Text
-text = basicFont.render('Hello, world!', True, WHITE, BLUE)
+text = basicFont.render('Hello, world!', True, LOUISVUITTONLAVENDER, BLUE)
 textRect = text.get_rect()
 textRect.centery = windowSurface.get_rect().centerx
 textRect.centery = windowSurface.get_rect().centery
 
 #Draw background onto window surface.
-windowSurface.fill(WHITE)
+windowSurface.fill(LOUISVUITTONLAVENDER)
 
 #Draw a green polygon onto the surface 
 pygame.draw.polygon(windowSurface, GREEN, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
@@ -41,7 +42,15 @@ pygame.draw.line(windowSurface, BLUE, (60, 120), (120, 120), 4)
 pygame.draw.circle(windowSurface, BLUE, (300, 50), 20, 0)
 
 #Draw an ellipse.
-pygame.draw.ellipse(windowSurface, RED, (300, 250, 40, 80), 1)
+pygame.draw.ellipse(windowSurface, BLACK, (300, 250, 40, 80), 1)
 
 # Draw text background rectangle onto surface.
 pygame.draw.rect(windowSurface, RED, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect. height +40))
+
+# Get a pixel array of the surface.
+pixArray = pygame.PixelArray(windowSurface)
+pixArray[488][380] = BLACK
+del pixArray
+
+# Draw the text onto the surface.
+windowSurface.blit(text, textRect)
