@@ -1,4 +1,4 @@
-#PyGame Practice, Jeremiah Harrell, 12/01/2021, 8:41am, v0.10
+#PyGame Practice, Jeremiah Harrell, 12/01/2021, 8:52am, v0.11
 
 import pygame, sys
 from pygame.locals import *
@@ -8,7 +8,7 @@ pygame.init()
 
 # Create game window
 windowSurface = pygame.display.set_mode((500,400), 0, 32)
-pygame.display.set_capiton("Hello, world!")
+pygame.display.set_caption("Hello, world!")
 
 #Set Color Values
 BLACK = (0, 0, 0)
@@ -54,3 +54,13 @@ del pixArray
 
 # Draw the text onto the surface.
 windowSurface.blit(text, textRect)
+
+# Draw the window onto the screen
+pygame.display.update()
+
+# Run the game loop
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
